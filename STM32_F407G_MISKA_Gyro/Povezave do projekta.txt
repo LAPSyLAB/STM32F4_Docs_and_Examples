@@ -1,0 +1,14 @@
+Prva oblika zračne miške (koda/projekt se nahaja v datoteki STM32_F407G_MISKA_pospesevalniki):
+
+-Github povezava: https://github.com/bernardkuchler/Air-mouse-accelerometer-
+-Posnetek delovanja na Youtube: https://www.youtube.com/watch?v=T2OSZze6Jlg
+
+
+
+Druga oblika zračne miške (koda/projekt se nahaja v datoteki STM32_F407G_MISKA_Gyro):
+
+-Github povezava: https://github.com/bernardkuchler/Air-mouse-accelerometer-gyroscope
+-Posnetek delovanja na Youtube: https://www.youtube.com/watch?v=6l0q2wX-H5k
+
+
+Posnetka nisem dodal v zip oddajo, ker zavzameta preveč prostora in sta zato dostopna le preko platforme Youtube.

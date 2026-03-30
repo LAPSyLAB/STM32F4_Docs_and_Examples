@@ -64,6 +64,16 @@ int8_t AccelZ;
 HAL_StatusTypeDef SPIStatus;
 
 
+typedef struct
+{
+	uint8_t button;
+	int8_t mouse_x;
+	int8_t mouse_y;
+	int8_t wheel;
+} mouseHID;
+
+mouseHID mousehid = {0,0,0,0};
+
 
 /* USER CODE END PV */
 
@@ -89,15 +99,6 @@ uint8_t button_flag = 0;
 // MOUSE
 extern USBD_HandleTypeDef hUsbDeviceFS;
 
-typedef struct
-{
-	uint8_t button;
-	int8_t mouse_x;
-	int8_t mouse_y;
-	int8_t wheel;
-} mouseHID;
-
-mouseHID mousehid = {0,0,0,0};
 
 void Calibrate (void) //Calibrates values from sensor to move the mouse cursor depending on the movement of the accelerometer from its starting position
 {
@@ -182,6 +183,7 @@ int main(void)
 
 
   // Config accelerometer
+
   // Read WHOAMI register
   HAL_GPIO_WritePin(GPIOE, GPIO_PIN_3, GPIO_PIN_RESET);
   outdata[0] = 0x0f | 0x80 ; // read whoami
@@ -189,6 +191,7 @@ int main(void)
   lis_id = indata[1];
   HAL_GPIO_WritePin(GPIOE, GPIO_PIN_3, GPIO_PIN_SET);
   HAL_Delay(500);
+
   // Activate accelerometer
   HAL_GPIO_WritePin(GPIOE, GPIO_PIN_3, GPIO_PIN_RESET);
   outdata[0] = 0x20 ; // switch on axes
